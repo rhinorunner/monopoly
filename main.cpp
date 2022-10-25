@@ -2,5 +2,6 @@
 #include "lib.h"
 
 int main() {
-	std::cout << "Hello, world!\n";
+	board::board mBoard;
+	return 0;
 }

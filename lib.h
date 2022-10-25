@@ -4,6 +4,7 @@
 #include <iostream>
 #include "render.cpp"
 #include "board.cpp"
+#include "read.cpp"
 #include "render.h"
 
 #endif
