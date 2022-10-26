@@ -31,7 +31,7 @@ namespace board {
 		{"VIRGINIA AVENUE"      ,{"VA","VGAV","VIR.AV","VIRGIN AV"}},
 		{"PENNSYLVANIA RAILROAD",{"PR","PVRR","PEN.RR","PNSYLV RR"}},
 
-		{"ST JAMES PLACE"       ,{"JP","STJP","STJM.P","ST JM PLC"}},
+		{"ST. JAMES PLACE"      ,{"JP","STJP","STJM.P","ST JM PLC"}},
 		{"COMMUNITY CHEST"      ,{"CC","CMCH","COM.CH","COMM CHST"}},
 		{"TENNESSE AVENUE"      ,{"TA","TNAV","TEN.AV","TENNSE AV"}},
 		{"NEW YORK AVENUE"      ,{"NA","NYAV","NWY.AV","NW YRK AV"}},
@@ -60,5 +60,26 @@ namespace board {
 		{"LUXURY TAX"           ,{"LT","LXTX","LX.TAX","LUXRY TAX"}},
 		{"BOARDWALK"            ,{"BW","BRDW","BRDWLK","BOARDWALK"}},
 		{"GO"                   ,{"GO","GO"  ,"GO",   "GO"        }}
+	};
+	std::vector<std::pair<std::string,std::vector<std::string>>> propertyColors {
+		{"BROWN"     ,{"MEDITERRANIAN AVENUE",
+					   "BALTIC AVENUE"
+		}},
+		{"LIGHT BLUE",{"ORIENTAL AVENUE",
+					   "VERMONT AVENUE",
+					   "CONNECTICUT AVENUE"
+		}},
+		{"PINK"		 ,{"ST. CHARLES PLACE",
+					   "STATES AVENUE",
+					   "VIRGINIA AVENUE"
+		}},
+		{"ORANGE"    ,{"ST. JAMES PLACE",
+					   "TENNESSE AVENUE",
+					   "NEW YORK AVENUE"
+		}},
+		{"RED"       ,{"KENTUCKY AVENUE",
+					   "INDIANA AVENUE",
+					   "ILLINOIS AVENUE"
+		}}
 	};
 }
