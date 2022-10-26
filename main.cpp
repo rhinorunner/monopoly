@@ -1,8 +1,22 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include "lib.h"
 
-void clear() {std::cout << "\033[2J\033[H\n";}
+inline void Tsleep(int ms);
+#ifdef _WIN32
+#include <windows.h>
+inline void Tsleep(int ms) {
+	Sleep(ms);
+}
+#else
+#include <unist.h>
+inline void Tsleep(int ms) {
+	usleep(ms*1000);
+}
+#endif
+
+inline void clear() {std::cout << "\033[2J\033[H\n";}
 
 template <typename T>
 T input(const std::string& prompt, const std::string errorMsg = "invalid input",const uint8_t afterFail = 0) {
@@ -18,7 +32,7 @@ T input(const std::string& prompt, const std::string errorMsg = "invalid input",
 			case 0:
 				getchar();
 			case 1:
-				sleep(1);
+				Tsleep(1);
 		}
         std::cout << prompt;
         std::cin >> var;
@@ -51,11 +65,12 @@ int main(int argc, char *argv[]) {
 				break;
 			case 2: //game settings
 				uint8_t choice2 = input<short>("GAME SETTINGS:\n1. taxes go to \"pot\"       - " 
-						  + thisGame.playWithPot 
+						  + std::to_string(thisGame.playWithPot)
 						  + "\n2. free parking gets \"pot\" - " 
-						  + thisGame.freeParkingGetsPot 
+						  + std::to_string(thisGame.freeParkingGetsPot)
 						  + "\n3. $400 if landed on go    - " 
-						  + thisGame.landOnGoGet400 << "\n4. main menu\n\nEnter a number to edit\n> ");
+						  + std::to_string(thisGame.landOnGoGet400)
+						  + "\n4. main menu\n\nEnter a number to edit\n> ");
 		}
 	}
 	return 0;
