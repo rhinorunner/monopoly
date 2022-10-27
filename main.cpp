@@ -4,11 +4,10 @@
 #include <climits>
 #include "lib.h"
 
-//void clear() {std::cout << "\033[2J\033[H\n";}
-void clear() {}
+void clear() {std::cout << "\033[2J\033[H\n";}
 
 template <typename T>
-T input(const std::string& prompt, const std::string errorMsg = "invalid input",const uint8_t afterFail = 0) {
+T input(const std::string& prompt, const std::string errorMsg = "\ninvalid input",const uint8_t afterFail = 0) {
 	T var;
 	std::cout << prompt;
 	std::cin >> var;
@@ -20,8 +19,10 @@ T input(const std::string& prompt, const std::string errorMsg = "invalid input",
 		switch (afterFail) {
 			case 0:
 				getchar();
+				break;
 			case 1:
 				sleep(1);
+				break;
 		}
         std::cout << prompt;
         std::cin >> var;
