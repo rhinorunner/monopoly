@@ -32,7 +32,7 @@ T input(const std::string& prompt, const std::string errorMsg = "invalid input",
 			case 0:
 				getchar();
 			case 1:
-				Tsleep(1);
+				Tsleep(1000);
 		}
         std::cout << prompt;
         std::cin >> var;
