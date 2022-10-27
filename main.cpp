@@ -55,13 +55,30 @@ int main(int argc, char *argv[]) {
 				start = false;
 				break;
 			case 2: //game settings
-				uint8_t choice2 = input<short>("GAME SETTINGS:\n1. taxes go to \"pot\"       - " 
-						  + std::to_string(thisGame.playWithPot)
-						  + "\n2. free parking gets \"pot\" - " 
-						  + std::to_string(thisGame.freeParkingGetsPot)
-						  + "\n3. $400 if landed on go    - " 
-						  + std::to_string(thisGame.landOnGoGet400)
-						  + "\n4. main menu\n\nEnter a number to edit\n> ");
+				bool cOpt = true;
+				while (cOpt) {
+					clear();
+					uint8_t choice2 = input<short>("GAME SETTINGS:\n1. taxes go to \"pot\"       - " 
+							  + std::to_string(thisGame.playWithPot)
+							  + "\n2. free parking gets \"pot\" - " 
+							  + std::to_string(thisGame.freeParkingGetsPot)
+							  + "\n3. $400 if landed on go    - " 
+							  + std::to_string(thisGame.landOnGoGet400)
+							  + "\n4. main menu\n\nEnter a number to edit\n> ");
+					switch (choice2) {
+						case 1:
+							thisGame.playWithPot
+							break;
+						case 2:
+							break;
+						case 3:
+							break;
+						case 4:
+							cOpt = false;
+							break;
+					}
+				}				
+				break;
 		}
 	}
 	return 0;

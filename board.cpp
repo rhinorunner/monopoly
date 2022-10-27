@@ -80,6 +80,10 @@ namespace board {
 		{"RED"       ,{"KENTUCKY AVENUE",
 					   "INDIANA AVENUE",
 					   "ILLINOIS AVENUE"
+		}},
+		{"YELLOW"	 ,{"ATLANTIC AVENUE",
+					   "VENTOR AVENUE",
+					   "MARVIN GARDENS"
 		}}
 	};
 }
