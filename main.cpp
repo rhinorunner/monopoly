@@ -1,39 +1,30 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <climits>
 #include "lib.h"
 
-inline void Tsleep(int ms);
-#ifdef _WIN32
-#include <windows.h>
-inline void Tsleep(int ms) {
-	Sleep(ms);
-}
-#else
-#include <unist.h>
-inline void Tsleep(int ms) {
-	usleep(ms*1000);
-}
-#endif
-
-inline void clear() {std::cout << "\033[2J\033[H\n";}
+void clear() {std::cout << "\033[2J\033[H\n";}
 
 template <typename T>
-T input(const std::string& prompt, const std::string errorMsg = "invalid input",const uint8_t afterFail = 0) {
+T input(const std::string& prompt,std::string errorMsg="\ninvalid input",uint8_t afterFail=0,bool clearOnFail=true) {
 	T var;
 	std::cout << prompt;
 	std::cin >> var;
-    while(std::cin.fail())
+    while(std::cin.fail()) // incorrect user input
     {
         std::cin.clear();
-        std::cin.ignore();
+        std::cin.ignore(INT_MAX,'\n');
 		std::cout << errorMsg;
 		switch (afterFail) {
 			case 0:
 				getchar();
+				break;
 			case 1:
-				Tsleep(1000);
+				sleep(1);
+				break;
 		}
+		if (clearOnFail) {clear();}
         std::cout << prompt;
         std::cin >> var;
     }
@@ -57,8 +48,8 @@ int main(int argc, char *argv[]) {
 	while (start) {
 		clear();
 		uint8_t choice = input<short>("C++ MONOPOLY\n\n1. start\n2. game settings\n\n>");
-		std::cout << "input passed, returned "<<choice<<"\n";
-		getchar();
+		//std::cout << "input passed, returned "<<choice<<"\n";
+		clear();
 		switch (choice) {
 			case 1: //start
 				start = false;
