@@ -7,7 +7,7 @@
 void clear() {std::cout << "\033[2J\033[H\n";}
 
 template <typename T>
-T input(const std::string& prompt, const std::string errorMsg = "\ninvalid input",const uint8_t afterFail = 0) {
+T input(const std::string& prompt,std::string errorMsg="\ninvalid input",uint8_t afterFail=0,bool clearOnFail=true) {
 	T var;
 	std::cout << prompt;
 	std::cin >> var;
@@ -24,6 +24,7 @@ T input(const std::string& prompt, const std::string errorMsg = "\ninvalid input
 				sleep(1);
 				break;
 		}
+		if (clearOnFail) {clear();}
         std::cout << prompt;
         std::cin >> var;
     }
