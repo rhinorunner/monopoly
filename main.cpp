@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 							  + "\n4. main menu\n\nEnter a number to edit\n> ");
 					switch (choice2) {
 						case 1:
-							thisGame.playWithPot
+							thisGame.playWithPot = !thisGame.playWithPot;
 							break;
 						case 2:
 							break;
